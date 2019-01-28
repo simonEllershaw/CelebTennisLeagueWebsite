@@ -1,0 +1,151 @@
+<!doctype html>
+<!-- Carousel with form on top: https://jsfiddle.net/7bzL8p2y/15/ -->
+<!-- Login in form: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_form_on_image -->
+
+
+<html>
+    <head>
+		<title>Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<style>
+	
+
+	
+	.vertical-right {
+		min-height: 100%;
+		min-height: 100vh;
+		display: flex;
+		align-items: centre;
+		position: absolute;
+		width: 100%;
+		bottom: 0px;
+		}
+
+	#carousel-img {
+		height: 100vh;
+		width: 100%;
+		}
+		
+	/* Add styles to the form container */
+	.container {
+	  position: absolute;
+	  right: 0;
+	  margin: 20px;
+	  max-width: 400px;
+	  padding: 16px;
+	  background-color: white;
+	}
+
+	/* Full-width input fields */
+	input[type=text], input[type=password] {
+	  width: 100%;
+	  padding: 15px;
+	  margin: 5px 0 22px 0;
+	  border: none;
+	  background: #f1f1f1;
+	}
+
+	input[type=text]:focus, input[type=password]:focus {
+	  background-color: #ddd;
+	  outline: none;
+	}
+
+	/* Set a style for the submit button */
+	.btn {
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 16px 20px;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	  opacity: 0.9;
+	}
+
+	.btn:hover {
+	  opacity: 1;
+	}
+
+	</style>
+	
+	
+	<script>
+	function login(){
+		var username = document.getElementById("username").value;
+		var pwd = document.getElementById("pwd").value;
+		var accountType = document.getElementById("accountType").value;
+		var loginDetails={username:username, pwd:pwd, accountType:accountType};	
+		$.post("http://127.0.0.1:8090/login", loginDetails, function(res, err){
+			var result = res;
+			if (result.includes("admin")){
+				location.href = '/admin.html';
+				document.cookie = "accountType = admin";
+				}
+			else{
+				location.href = '/player.html' + "#" + res;
+				document.cookie = "accountType = player";
+				}
+			})
+			.fail(function(response) {
+				$("#incorrectLogin").html("Either password or username is incorrect. Please try again.");
+			})
+		 };
+	
+	$(document).ready(function(){
+		document.cookie = "accountType=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+	})
+
+	</script>
+	
+
+	</head>
+	
+	<body>
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		  <div class="carousel-inner" role="listbox">
+			<div class="item active">
+			  <img src="images/slideshow/1.jpg" class="img-responsive" id="carousel-img">
+			</div>
+			<div class="item">
+			  <img src="images/slideshow/2.jpg" class="img-responsive" id="carousel-img">
+			</div>
+			<div class="item">
+			  <img src="images/slideshow/3.jpg" class="img-responsive" id="carousel-img">
+			</div>
+		  </div>
+	
+
+		  <div class="vertical-right">
+			<div class="container-fluid">
+				  <div class="container">
+					<h2>Celebrity Tennis League</h2>
+					<h3>Login</h3>
+					<label for="username"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" id="username" required>
+
+					<label for="pwd"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" id="pwd" required>
+					
+					<label for="accountType"><b>Account Type</b></label>
+					<select id="accountType">
+					  <option value="player">Player</option>
+					  <option value="admin">Admin</option>
+					</select>
+					<br>
+					<br>
+
+					<button onclick="login()" class="btn">Login</button>
+						  
+					<div id="incorrectLogin" style="color : red;"></div>
+						 
+				 </div>
+			</div>
+		</div> 
+	</body>
+</html>

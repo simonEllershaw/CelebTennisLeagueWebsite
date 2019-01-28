@@ -1,0 +1,75 @@
+{
+  "weeksPlayed": 0,
+  "leaguePositions": [
+    "elt_john",
+    "bill_g",
+    "rod_fed",
+    "doctorwhocomposer"
+  ],
+  "players": {
+    "elt_john": {
+      "username": "elt_john",
+      "pwd": "password",
+      "forename": "Elton",
+      "surname": "John",
+      "phoneNumber": "07242 233412",
+      "email": "elton@music.com",
+      "homeCourt": "LA Tennis Centre",
+      "picture": "images/playerImgs/elt_john.jpg",
+      "won": 0,
+      "lost": 0,
+      "gamesWon": 0,
+      "gamesLost": 0
+    },
+    "bill_g": {
+      "username": "bill_g",
+      "pwd": "password",
+      "forename": "Bill",
+      "surname": "Gates",
+      "phoneNumber": "07531 64654",
+      "email": "boss@microsoft.com",
+      "homeCourt": "Microsoft AI Tennis Centre",
+      "picture": "images/playerImgs/bill_G.jpg",
+      "won": 0,
+      "lost": 0,
+      "gamesWon": 0,
+      "gamesLost": 0
+    },
+    "rod_fed": {
+      "username": "rod_fed",
+      "pwd": "password",
+      "forename": "Rodger",
+      "surname": "Federer",
+      "phoneNumber": "07512 59862",
+      "email": "GOAT@tennis.com",
+      "homeCourt": "Swiss National Tennis Centre",
+      "picture": "images/playerImgs/rod_fed.jpg",
+      "won": 0,
+      "lost": 0,
+      "gamesWon": 0,
+      "gamesLost": 0
+    },
+    "doctorwhocomposer": {
+      "username": "doctorwhocomposer",
+      "pwd": "password",
+      "forename": "Delia",
+      "surname": "Derbyshire",
+      "phoneNumber": "07542 486435",
+      "email": "doctorwhocomposer@bbc.co.uk",
+      "homeCourt": "BBC Fitness Centre",
+      "picture": "images/playerImgs/doctorwhocomposer.jpg",
+      "won": 0,
+      "lost": 0,
+      "gamesWon": 0,
+      "gamesLost": 0
+    }
+  },
+  "admins": {
+    "admin1": {
+      "username": "admin",
+      "pwd": "password"
+    }
+  },
+  "results": [],
+  "fixtures": []
+}

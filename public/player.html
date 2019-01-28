@@ -1,0 +1,162 @@
+<!doctype html>
+<!-- Tabs: https://www.w3schools.com/bootstrap/bootstrap_tabs_pills.asp -->
+<!-- Navbar: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+<html lang="en">
+    <head>
+        <title>Player</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+
+        <style>
+            body {
+                background-color: white;
+                font-family: font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+                font:Georgia;
+                padding:15px 25px 50px;
+				background-image:url('images/background2.jpg'); 
+				background-repeat: no-repeat; 
+				background-position: centre; 
+				background-size: 100%;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            p {word-wrap:break-word;}
+			
+			#leagueTable tr:hover {
+			background-color: #ccc;
+			}
+			#leagueTable td:hover {
+			cursor: pointer;
+			}
+}
+        </style>
+    </head>
+
+	<body style="">
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="home.html">Celebrity Tennis League</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+				    <li><a href="home.html">Home</a></li>
+                    <li class="active"><a href="player.html">Players</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+		<br>
+		<br>
+		<br>
+		<br>
+	
+	
+			
+		<div class="main" style="display: none">			
+			<div class="row">
+				<div class="col-sm-0 col-md-1 col-lg-2">
+				</div>
+				<div class="col-sm-12 col-md-10 col-lg-8" style="background-color:white; border: 20px solid #3CA22C;">
+					<h2 id="playerName"></h2>
+						
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
+						<li><a data-toggle="tab" href="#league">League</a></li>
+						<li class="resultTab"><a data-toggle="tab" href="#results">Results</a></li>
+						<li class="fixtureTab"><a data-toggle="tab" href="#fixtures">Fixtures</a></li>
+						<li ><a data-toggle="tab" href="#rules" >Rules</a></li>
+					</ul>
+						
+					<div class="tab-content">
+					  <div id="profile" class="tab-pane fade in active">
+						<img id="playerPic" src="" height="200" alt="" align="right" style="padding-bottom: 20px" >
+						<h3>Contact Infomation</h3>
+						<div id="email"></div>
+						<div id="phoneNumber"></div>
+						<div id="homeCourt"></div>	
+					  </div>
+					  <div id="league" class="tab-pane fade">
+						<h3>League Table</h3>
+						<table class="table table-bordered table-hover" id="leagueTable" style="text-align: center">
+							<thead>
+								<tr class='clickable-row' data-html='url://player.html#rod_fed'>
+									<th class="text-center">
+										Position
+									</th>
+									<th class="text-center">
+										Name
+									</th>
+									<th class="text-center">
+										Played
+									</th>
+									<th class="text-center">
+										W
+									</th>
+									<th class="text-center">
+										L
+									</th>
+									<th class="text-center">
+										GW
+									</th>
+									<th class="text-center">
+										GL
+									</th>
+									<th class="text-center">
+										GD
+									</th>
+									<th class="text-center">
+										Points
+									</th>
+								</tr>
+								</thead>
+							</table>
+					  </div>
+					  <div id="results" class="tab-pane fade">
+						<h3>Results</h3>
+						<div id="resultsList" style="margin: 0 auto; width: 50%;"></div>
+					  </div>
+					  <div id="fixtures" class="tab-pane fade">
+						<h3>Fixture List</h3>	
+						<div id="fixtureList" style="margin: 0 auto; width: 50%;"></div>
+					  </div>
+					  <div id="rules" class="tab-pane fade">
+						<h3>Rules</h3>	
+							<ul style = "list-style-type:disc; margin-left: 20px;">
+							  <li>Each tennis match is the first to one set</li>
+							  <li>Must win by 2 clear games or at 6-6 a tie break is played</li>
+							  <li>3 points are awarded for a win, 0 for a lose</li>
+							  <li>If points are tied game difference then games won and finaly games lost determine standings</li>
+							  <li>Every player plays every other player twice, once at home and once away</li>
+							  <li>Games occur on a weekly basis</li>
+							  <br>
+							</ul>
+					  </div>
+					</div>
+						
+				</div>
+				<div class="col-sm-0 col-md-1 col-lg-2">
+				</div>
+				
+		
+	<script type="text/javascript" language="javascript" src="league.js"></script>
+
+	</body>
+</html>

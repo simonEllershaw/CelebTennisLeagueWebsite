@@ -1,0 +1,16 @@
+{
+  "name": "simon",
+  "version": "1.0.0",
+  "description": "Celebrity Tennis League",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "supertest": "^3.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+	"start": "node app.js",
+	"test": "mocha test.js"},
+  "author": "Simon Ellershaw",
+  "license": "ISC"
+}
