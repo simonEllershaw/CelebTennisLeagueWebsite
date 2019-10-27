@@ -4,7 +4,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var fs = require("fs");
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
@@ -18,10 +17,11 @@ app.get('/people', function(req,resp){
 	})	
 })
 
-app.get('/people/doctorwhocomposer', function(req,resp){
+app.get('/people/:username', function(req,resp){
+	var username=req.params.username;
 	fs.readFile( __dirname + "/" + "league.json", 'utf8', function (err, data) {
 		data = JSON.parse(data);
-		return resp.json(data.players[doctorwhocomposer]);
+		return resp.json(data.players[username]);
 	})	
 })
 
@@ -61,7 +61,7 @@ app.post("/login", function(req, resp){
 				return resp.json(successReply);
 				}	
 		}
-		return resp.status(401).json("notPresent");
+		return resp.status(403).json("notPresent");
 	}
 )}
 )
@@ -74,7 +74,6 @@ app.post("/people", function(req, resp){
 	var leagueData = JSON.parse(rawLeagueData);
 	var username = data.username
 	var accessToken = data.access_token
-	console.log(accessToken)
 	if(!(accessToken === "concertina")){
 		return resp.status(403).end('Incorrect or no access token supplied');
 	}
@@ -307,8 +306,7 @@ function createFixtures(leagueData){
 	return fixtureList;
 }
 
-console.log("server is running")
+module.exports = app;
 
 
-app.listen(8090);
 
