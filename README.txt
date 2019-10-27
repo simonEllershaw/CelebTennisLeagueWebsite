@@ -25,7 +25,7 @@ To deploy run:
 The following message should be outputed:
   "server is running on port 8090"
 The website can then be accessed from the following url:
-http://127.0.0.1:8090/home.html
+  http://127.0.0.1:8090/home.html
 The following users are preloaded:
   Username		Password
   elt_john		password
